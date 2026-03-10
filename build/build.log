@@ -1,0 +1,17 @@
+[ 50%] Building CXX object CMakeFiles/SQLiPass.dir/SQLiPass.cpp.o
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp: In member function ‘llvm::PreservedAnalyses {anonymous}::HelloSQLiPass::run(llvm::Module&, llvm::ModuleAnalysisManager&)’:
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:240:8: error: expected unqualified-id before string constant
+  240 | extern "C" LLVM_ATTRIBUTE_WEAK PassPluginLibraryInfo
+      |        ^~~
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:258:2: error: expected ‘}’ at end of input
+  258 | }
+      |  ^
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:72:74: note: to match this ‘{’
+   72 | PreservedAnalyses HelloSQLiPass::run(Module &M, ModuleAnalysisManager &) {
+      |                                                                          ^
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:258:2: warning: control reaches end of non-void function [-Wreturn-type]
+  258 | }
+      |  ^
+make[2]: *** [CMakeFiles/SQLiPass.dir/build.make:76: CMakeFiles/SQLiPass.dir/SQLiPass.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:191: CMakeFiles/SQLiPass.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2

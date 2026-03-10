@@ -1,0 +1,38 @@
+=== SQLi Detection Pass ===
+[TAINT] Source detected: _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE. Tainting arg 0 in main
+[TAINT] Source detected: _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE. Tainting arg 1 in main
+  [PROP] Taint spread to .c_str() result
+[PATTERN] Vulnerable SQL construction detected
+  [PROP] Taint spread via assign/append to: 
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _Z10exec_queryPKc
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread via assign/append to: 
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread via assign/append to: 
+  [PROP-INTER] Taint spread to arg 0 of _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_
+  [PROP-INTER] Taint spread to arg 1 of _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _ZNSt15__new_allocatorIcED2Ev
+  [PROP-INTER] Taint escapes via arg 0 of _ZNSt15__new_allocatorIcED2Ev
+  [PROP-INTER] Taint escapes via arg 0 of _ZNSt15__new_allocatorIcED2Ev
+VULNERABILITY DETECTED in function main
+  Sink: _Z10exec_queryPKc
+  Instruction:   invoke void @_Z10exec_queryPKc(ptr noundef %23)
+          to label %24 unwind label %35

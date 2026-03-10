@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -shared  -o libSQLiPass.so CMakeFiles/SQLiPass.dir/SQLiPass.cpp.o 

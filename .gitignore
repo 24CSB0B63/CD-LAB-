@@ -1,0 +1,10 @@
+# Ignore everything by default
+/*
+
+# Except the following directories
+!/build/
+!/src/
+!/tests/
+
+# And except this file
+!.gitignore

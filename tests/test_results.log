@@ -1,0 +1,27 @@
+Pass library not found at ../build/libSQLiPass.so. Building...
+-- Could NOT find LibEdit (missing: LibEdit_INCLUDE_DIRS LibEdit_LIBRARIES) 
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR) 
+-- Could NOT find zstd (missing: zstd_LIBRARY zstd_INCLUDE_DIR) 
+-- Could NOT find CURL (missing: CURL_LIBRARY CURL_INCLUDE_DIR) 
+-- Found LLVM 18.1.3
+-- Using LLVMConfig.cmake in: /usr/lib/llvm-18/cmake
+-- Configuring done (8.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chotato/llvm-sqli-pass/build
+[ 50%] Building CXX object CMakeFiles/SQLiPass.dir/SQLiPass.cpp.o
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp: In member function ‘llvm::PreservedAnalyses {anonymous}::HelloSQLiPass::run(llvm::Module&, llvm::ModuleAnalysisManager&)’:
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:240:8: error: expected unqualified-id before string constant
+  240 | extern "C" LLVM_ATTRIBUTE_WEAK PassPluginLibraryInfo
+      |        ^~~
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:258:2: error: expected ‘}’ at end of input
+  258 | }
+      |  ^
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:72:74: note: to match this ‘{’
+   72 | PreservedAnalyses HelloSQLiPass::run(Module &M, ModuleAnalysisManager &) {
+      |                                                                          ^
+/home/chotato/llvm-sqli-pass/src/SQLiPass.cpp:258:2: warning: control reaches end of non-void function [-Wreturn-type]
+  258 | }
+      |  ^
+gmake[2]: *** [CMakeFiles/SQLiPass.dir/build.make:76: CMakeFiles/SQLiPass.dir/SQLiPass.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:191: CMakeFiles/SQLiPass.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

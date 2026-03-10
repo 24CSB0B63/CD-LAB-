@@ -1,0 +1,7 @@
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/intrinsics_gen.dir
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/omp_gen.dir
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/acc_gen.dir
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/SQLiPass.dir
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/edit_cache.dir
+/home/chotato/llvm-sqli-pass/build/CMakeFiles/rebuild_cache.dir
