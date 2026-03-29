@@ -1,20 +1,23 @@
 #include <iostream>
 #include <string>
 
-// Mock sink function
+using namespace std;
+
 void exec_query(const char* q) {
-    std::cout << "Executing: " << q << std::endl;
+    cout << "Executing: " << q << endl;
 }
 
 int main() {
-    // Looks complex, but all data is constant (Safe)
-    std::string part1 = "SELECT * FROM ";
-    std::string part2 = "inventory";
+    string part1 = "SELECT * FROM ";
+    string part2 = "inventory";
     
-    std::string table = part2;
-    std::string query = part1 + table + " WHERE count > 0";
+    string table = part2;
+    string query = part1 + table + " WHERE count > 0";
+
+    string test;
+    cin>>test;
     
-    exec_query(query.c_str()); // Should NOT be detected
+    exec_query(query.c_str()); 
 
     return 0;
 }

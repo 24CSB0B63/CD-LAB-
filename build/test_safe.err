@@ -2,8 +2,5 @@
 [TAINT] Source detected: _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE. Tainting arg 0 in main
 [TAINT] Source detected: _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE. Tainting arg 1 in main
   [PROP] Taint spread to .c_str() result
-  [PROP] Taint spread via assign/append to: 
-  [PROP] Taint spread to .c_str() result
-  [PROP] Taint spread to .c_str() result
   [PROP] Taint spread to .c_str() result
   [PROP] Taint spread to .c_str() result

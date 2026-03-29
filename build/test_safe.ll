@@ -10,6 +10,7 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
+%"class.std::basic_istream" = type { ptr, i64, %"class.std::basic_ios" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -44,6 +45,7 @@ $_ZSt12__str_concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_PKNS6
 @.str.1 = private unnamed_addr constant [15 x i8] c"SELECT * FROM \00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"inventory\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c" WHERE count > 0\00", align 1
+@_ZSt3cin = external global %"class.std::basic_istream", align 8
 @.str.4 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -83,135 +85,143 @@ define dso_local noundef i32 @main() #2 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
+  %19 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 0, ptr %9, align 4
   store ptr %11, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  store ptr %19, ptr %1, align 8
-  %20 = load ptr, ptr %1, align 8
+  %20 = load ptr, ptr %8, align 8
+  store ptr %20, ptr %1, align 8
+  %21 = load ptr, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %21 unwind label %33
+          to label %22 unwind label %36
 
-21:                                               ; preds = %0
+22:                                               ; preds = %0
   store ptr %11, ptr %6, align 8
-  %22 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #8
+  %23 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #8
   store ptr %15, ptr %7, align 8
-  %23 = load ptr, ptr %7, align 8
-  store ptr %23, ptr %2, align 8
-  %24 = load ptr, ptr %2, align 8
+  %24 = load ptr, ptr %7, align 8
+  store ptr %24, ptr %2, align 8
+  %25 = load ptr, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %25 unwind label %38
+          to label %26 unwind label %41
 
-25:                                               ; preds = %21
+26:                                               ; preds = %22
   store ptr %15, ptr %4, align 8
-  %26 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #8
+  %27 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %27 unwind label %43
+          to label %28 unwind label %46
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %28 unwind label %47
-
-28:                                               ; preds = %27
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.3)
-          to label %29 unwind label %51
+          to label %29 unwind label %50
 
 29:                                               ; preds = %28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
-  %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
-  invoke void @_Z10exec_queryPKc(ptr noundef %30)
-          to label %31 unwind label %55
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.3)
+          to label %30 unwind label %54
 
-31:                                               ; preds = %29
+30:                                               ; preds = %29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
+  %31 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %32 unwind label %58
+
+32:                                               ; preds = %30
+  %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
+  invoke void @_Z10exec_queryPKc(ptr noundef %33)
+          to label %34 unwind label %58
+
+34:                                               ; preds = %32
   store i32 0, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
-  %32 = load i32, ptr %9, align 4
-  ret i32 %32
+  %35 = load i32, ptr %9, align 4
+  ret i32 %35
 
-33:                                               ; preds = %0
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %0
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %12, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %13, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %12, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %13, align 4
   store ptr %11, ptr %5, align 8
-  %37 = load ptr, ptr %5, align 8
-  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #8
-  br label %62
+  %40 = load ptr, ptr %5, align 8
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #8
+  br label %65
 
-38:                                               ; preds = %21
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %22
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %12, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %13, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %12, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %13, align 4
   store ptr %15, ptr %3, align 8
-  %42 = load ptr, ptr %3, align 8
-  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #8
-  br label %61
+  %45 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #8
+  br label %64
 
-43:                                               ; preds = %25
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %26
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %12, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %13, align 4
-  br label %60
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %12, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %13, align 4
+  br label %63
 
-47:                                               ; preds = %27
-  %48 = landingpad { ptr, i32 }
+50:                                               ; preds = %28
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %12, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %13, align 4
-  br label %59
-
-51:                                               ; preds = %28
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %12, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
-  br label %59
-
-55:                                               ; preds = %29
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %12, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %13, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
-  br label %59
-
-59:                                               ; preds = %55, %51, %47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
-  br label %60
-
-60:                                               ; preds = %59, %43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
-  br label %61
-
-61:                                               ; preds = %60, %38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %12, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %13, align 4
   br label %62
 
-62:                                               ; preds = %61, %33
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i32, ptr %13, align 4
-  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
-  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
-  resume { ptr, i32 } %66
+54:                                               ; preds = %29
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %12, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
+  br label %62
+
+58:                                               ; preds = %32, %30
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %12, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
+  br label %62
+
+62:                                               ; preds = %58, %54, %50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
+  br label %63
+
+63:                                               ; preds = %62, %46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
+  br label %64
+
+64:                                               ; preds = %63, %41
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
+  br label %65
+
+65:                                               ; preds = %64, %36
+  %66 = load ptr, ptr %12, align 8
+  %67 = load i32, ptr %13, align 4
+  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
+  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
+  resume { ptr, i32 } %69
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -350,6 +360,11 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) #1
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #3

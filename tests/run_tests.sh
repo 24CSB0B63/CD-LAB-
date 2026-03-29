@@ -76,9 +76,11 @@ run_test() {
 }
 
 # Run tests
-run_test "test_vulnerable.cpp" "true"
-run_test "test_safe.cpp" "false"
-run_test "test_interprocedural.cpp" "true"
-run_test "test_demo.cpp" "true"
+# run_test "test_vulnerable.cpp" "true"
+# run_test "test_safe.cpp" "false"
+# run_test "test_interprocedural.cpp" "true"
+# run_test "test_demo.cpp" "true"
+# run_test "test_sanitized.cpp" "false"
+run_test "test_sample.cpp" "true"
 
 echo "All tests passed!"

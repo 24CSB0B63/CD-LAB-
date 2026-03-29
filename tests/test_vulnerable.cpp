@@ -1,30 +1,28 @@
 #include <iostream>
 #include <string>
 
-// Mock sink function
+using namespace std;
+
 void exec_query(const char* q) {
-    std::cout << "Executing: " << q << std::endl;
+    cout << "Executing: " << q << endl;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter sensitive data: ";
-    std::cin >> input; // SOURCE
+    string input;
+    cout << "Enter sensitive data: ";
+    cin >> input; 
 
-    // 1. Propagation through assignment
-    std::string proxy = input; 
+    string proxy = input; 
 
-    // 2. Propagation through multiple concatenation steps
-    std::string query = "SELECT * FROM logs WHERE entry='";
-    query = query + proxy;
+//    string query = "SELECT * FROM logs WHERE entry='";
+    //query = query + proxy;
+
+    string query = "SELECT * FROM logs WHERE entry='Name'";
     query = query + "' AND type='ERROR'";
 
-    // 3. Indirect access via pointer
     const char* final_ptr = query.c_str();
 
-    exec_query(final_ptr); // SINK - Should trigger detection
+    exec_query(final_ptr); 
 
     return 0;
 }
-
-

@@ -69,6 +69,22 @@ static bool isSink(Function *F) {
     return false;
 }
 
+static bool isSanitizer(Function *F) {
+    if (!F) return false;
+
+    StringRef Name = F->getName();
+
+    // Standard sanitization and escaping functions
+    if (Name.contains("sanitize_input") ||
+        Name.contains("escape_string") ||
+        Name == "mysql_real_escape_string" ||
+        Name == "PQescapeString" ||
+        Name == "sqlite3_mprintf")
+        return true;
+
+    return false;
+}
+
 static std::string extractConstantString(Value *V) {
     if (!V) return "";
     if (auto *CE = dyn_cast<ConstantExpr>(V)) {
@@ -333,6 +349,26 @@ PreservedAnalyses HelloSQLiPass::run(Module &M, ModuleAnalysisManager &) {
                                          }
                                      }
                                  }
+                             }
+                         } else if (isSanitizer(Callee)) {
+                             // --- WEEK 9: SANITIZER HEURISTICS ---
+                             // If this is a known sanitizer function, untaint its arguments and its return value.
+                             
+                             // 1. Untaint arguments
+                             for (unsigned i = 0; i < CI->arg_size(); ++i) {
+                                 Value *Arg = CI->getArgOperand(i);
+                                 if (TaintedValues.count(Arg)) {
+                                     TaintedValues.erase(Arg);
+                                     Changed = true;
+                                     errs() << "  [SANITIZED] Untainting argument " << i << " of " << Callee->getName() << "\n";
+                                 }
+                             }
+                             
+                             // 2. Untaint the return value (the call instruction itself)
+                             if (TaintedValues.count(CI)) {
+                                 TaintedValues.erase(CI);
+                                 Changed = true;
+                                 errs() << "  [SANITIZED] Untainting return value from " << Callee->getName() << "\n";
                              }
                          }
                     }

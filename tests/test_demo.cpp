@@ -1,22 +1,21 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 void exec_query(const char* q) {
-    std::cout << "Running Query: " << q << std::endl;
+    cout << "Running Query: " << q << endl;
 }
 
 int main() {
-    std::string userInput;
-    std::cout << "Search for user: ";
-    std::cin >> userInput; // SOURCE
+    string userInput;
+    cout << "Search for user: ";
+    cin >> userInput; 
 
-    // The pass will detect "SELECT" in this constant and flag the concatenation
-    std::string query = "SELECT * FROM users WHERE name='";
+    string query = "SELECT * FROM users WHERE name='";
     query += userInput;
     query += "' AND status='active'";
 
-    exec_query(query.c_str()); // SINK
+    exec_query(query.c_str()); 
     return 0;
 }
-
-

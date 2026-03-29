@@ -1,0 +1,26 @@
+=== SQLi Detection Pass ===
+[TAINT] Source detected: _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE. Tainting arg 0 in main
+[TAINT] Source detected: _ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE. Tainting arg 1 in main
+  [PROP] Taint spread to .c_str() result
+[PATTERN] Vulnerable SQL construction detected
+  [PROP] Taint spread via + to: 
+  [PROP-INTER] Taint spread to arg 0 of _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_
+  [PROP-INTER] Taint spread to arg 2 of _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_
+  [PROP] Taint spread via assign/append to: 
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _Z4execNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP-INTER] Taint spread to arg 0 of _ZSt12__str_concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_PKNS6_10value_typeENS6_9size_typeES9_SA_RKNS6_14allocator_typeE
+  [PROP-INTER] Taint spread to arg 3 of _ZSt12__str_concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_PKNS6_10value_typeENS6_9size_typeES9_SA_RKNS6_14allocator_typeE
+  [PROP-INTER] Taint spread to arg 4 of _ZSt12__str_concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_PKNS6_10value_typeENS6_9size_typeES9_SA_RKNS6_14allocator_typeE
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result
+  [PROP] Taint spread to .c_str() result

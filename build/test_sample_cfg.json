@@ -1,0 +1,352 @@
+{
+  "_Z4execNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE": {
+    "BasicBlocks": [
+      {
+        "Name": "%1",
+        "Successors": [],
+        "Instructions": [
+          "  %2 = alloca ptr, align 8", 
+          "  store ptr %0, ptr %2, align 8", 
+          "  %3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef @.str)", 
+          "  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %0)", 
+          "  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)", 
+          "  ret void"
+        ]
+      }
+    ]
+  },
+  "main": {
+    "BasicBlocks": [
+      {
+        "Name": "%0",
+        "Successors": ["%7", "%11"],
+        "Instructions": [
+          "  %1 = alloca %\"class.std::__cxx11::basic_string\", align 8", 
+          "  %2 = alloca ptr, align 8", 
+          "  %3 = alloca i32, align 4", 
+          "  %4 = alloca %\"class.std::__cxx11::basic_string\", align 8", 
+          "  %5 = alloca %\"class.std::__cxx11::basic_string\", align 8", 
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6", 
+          "  %6 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, ptr noundef nonnull align 8 dereferenceable(32) %1)\n          to label %7 unwind label %11"
+        ]
+      },
+      {
+        "Name": "%7",
+        "Successors": ["%8", "%11"],
+        "Instructions": [
+          "  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%\"class.std::__cxx11::basic_string\") align 8 %4, ptr noundef @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %1)\n          to label %8 unwind label %11"
+        ]
+      },
+      {
+        "Name": "%8",
+        "Successors": ["%9", "%15"],
+        "Instructions": [
+          "  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)\n          to label %9 unwind label %15"
+        ]
+      },
+      {
+        "Name": "%9",
+        "Successors": ["%10", "%19"],
+        "Instructions": [
+          "  invoke void @_Z4execNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %5)\n          to label %10 unwind label %19"
+        ]
+      },
+      {
+        "Name": "%10",
+        "Successors": [],
+        "Instructions": [
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6", 
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6", 
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6", 
+          "  ret i32 0"
+        ]
+      },
+      {
+        "Name": "%11",
+        "Successors": ["%24"],
+        "Instructions": [
+          "  %12 = landingpad { ptr, i32 }\n          cleanup", 
+          "  %13 = extractvalue { ptr, i32 } %12, 0", 
+          "  store ptr %13, ptr %2, align 8", 
+          "  %14 = extractvalue { ptr, i32 } %12, 1", 
+          "  store i32 %14, ptr %3, align 4", 
+          "  br label %24"
+        ]
+      },
+      {
+        "Name": "%15",
+        "Successors": ["%23"],
+        "Instructions": [
+          "  %16 = landingpad { ptr, i32 }\n          cleanup", 
+          "  %17 = extractvalue { ptr, i32 } %16, 0", 
+          "  store ptr %17, ptr %2, align 8", 
+          "  %18 = extractvalue { ptr, i32 } %16, 1", 
+          "  store i32 %18, ptr %3, align 4", 
+          "  br label %23"
+        ]
+      },
+      {
+        "Name": "%19",
+        "Successors": ["%23"],
+        "Instructions": [
+          "  %20 = landingpad { ptr, i32 }\n          cleanup", 
+          "  %21 = extractvalue { ptr, i32 } %20, 0", 
+          "  store ptr %21, ptr %2, align 8", 
+          "  %22 = extractvalue { ptr, i32 } %20, 1", 
+          "  store i32 %22, ptr %3, align 4", 
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6", 
+          "  br label %23"
+        ]
+      },
+      {
+        "Name": "%23",
+        "Successors": ["%24"],
+        "Instructions": [
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6", 
+          "  br label %24"
+        ]
+      },
+      {
+        "Name": "%24",
+        "Successors": ["%25"],
+        "Instructions": [
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6", 
+          "  br label %25"
+        ]
+      },
+      {
+        "Name": "%25",
+        "Successors": [],
+        "Instructions": [
+          "  %26 = load ptr, ptr %2, align 8", 
+          "  %27 = load i32, ptr %3, align 4", 
+          "  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0", 
+          "  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1", 
+          "  resume { ptr, i32 } %29"
+        ]
+      }
+    ]
+  },
+  "_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_": {
+    "BasicBlocks": [
+      {
+        "Name": "%3",
+        "Successors": ["%20", "%22"],
+        "Instructions": [
+          "  %4 = alloca ptr, align 8", 
+          "  %5 = alloca ptr, align 8", 
+          "  %6 = alloca ptr, align 8", 
+          "  %7 = alloca ptr, align 8", 
+          "  %8 = alloca ptr, align 8", 
+          "  %9 = alloca %\"class.std::allocator\", align 1", 
+          "  %10 = alloca ptr, align 8", 
+          "  %11 = alloca i32, align 4", 
+          "  store ptr %0, ptr %6, align 8", 
+          "  store ptr %1, ptr %7, align 8", 
+          "  store ptr %2, ptr %8, align 8", 
+          "  %12 = load ptr, ptr %7, align 8", 
+          "  %13 = load ptr, ptr %7, align 8", 
+          "  %14 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %13)", 
+          "  %15 = load ptr, ptr %8, align 8", 
+          "  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #6", 
+          "  %17 = load ptr, ptr %8, align 8", 
+          "  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #6", 
+          "  %19 = load ptr, ptr %8, align 8", 
+          "  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind writable sret(%\"class.std::allocator\") align 1 %9, ptr noundef nonnull align 8 dereferenceable(32) %19) #6", 
+          "  invoke void @_ZSt12__str_concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_PKNS6_10value_typeENS6_9size_typeES9_SA_RKNS6_14allocator_typeE(ptr dead_on_unwind writable sret(%\"class.std::__cxx11::basic_string\") align 8 %0, ptr noundef %12, i64 noundef %14, ptr noundef %16, i64 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %9)\n          to label %20 unwind label %22"
+        ]
+      },
+      {
+        "Name": "%20",
+        "Successors": [],
+        "Instructions": [
+          "  store ptr %9, ptr %5, align 8", 
+          "  %21 = load ptr, ptr %5, align 8", 
+          "  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #6", 
+          "  ret void"
+        ]
+      },
+      {
+        "Name": "%22",
+        "Successors": ["%27"],
+        "Instructions": [
+          "  %23 = landingpad { ptr, i32 }\n          cleanup", 
+          "  %24 = extractvalue { ptr, i32 } %23, 0", 
+          "  store ptr %24, ptr %10, align 8", 
+          "  %25 = extractvalue { ptr, i32 } %23, 1", 
+          "  store i32 %25, ptr %11, align 4", 
+          "  store ptr %9, ptr %4, align 8", 
+          "  %26 = load ptr, ptr %4, align 8", 
+          "  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #6", 
+          "  br label %27"
+        ]
+      },
+      {
+        "Name": "%27",
+        "Successors": [],
+        "Instructions": [
+          "  %28 = load ptr, ptr %10, align 8", 
+          "  %29 = load i32, ptr %11, align 4", 
+          "  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0", 
+          "  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1", 
+          "  resume { ptr, i32 } %31"
+        ]
+      }
+    ]
+  },
+  "_ZSt12__str_concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_PKNS6_10value_typeENS6_9size_typeES9_SA_RKNS6_14allocator_typeE": {
+    "BasicBlocks": [
+      {
+        "Name": "%6",
+        "Successors": ["%36", "%46"],
+        "Instructions": [
+          "  %7 = alloca ptr, align 8", 
+          "  %8 = alloca ptr, align 8", 
+          "  %9 = alloca ptr, align 8", 
+          "  %10 = alloca ptr, align 8", 
+          "  %11 = alloca ptr, align 8", 
+          "  %12 = alloca ptr, align 8", 
+          "  %13 = alloca ptr, align 8", 
+          "  %14 = alloca ptr, align 8", 
+          "  %15 = alloca ptr, align 8", 
+          "  %16 = alloca ptr, align 8", 
+          "  %17 = alloca ptr, align 8", 
+          "  %18 = alloca i64, align 8", 
+          "  %19 = alloca ptr, align 8", 
+          "  %20 = alloca i64, align 8", 
+          "  %21 = alloca ptr, align 8", 
+          "  %22 = alloca i1, align 1", 
+          "  %23 = alloca %\"class.std::allocator\", align 1", 
+          "  %24 = alloca ptr, align 8", 
+          "  %25 = alloca i32, align 4", 
+          "  store ptr %0, ptr %16, align 8", 
+          "  store ptr %1, ptr %17, align 8", 
+          "  store i64 %2, ptr %18, align 8", 
+          "  store ptr %3, ptr %19, align 8", 
+          "  store i64 %4, ptr %20, align 8", 
+          "  store ptr %5, ptr %21, align 8", 
+          "  store i1 false, ptr %22, align 1", 
+          "  %26 = load ptr, ptr %21, align 8", 
+          "  call void @llvm.experimental.noalias.scope.decl(metadata !6)", 
+          "  store ptr %23, ptr %13, align 8, !noalias !6", 
+          "  store ptr %26, ptr %14, align 8, !noalias !6", 
+          "  %27 = load ptr, ptr %14, align 8, !noalias !6", 
+          "  call void @llvm.experimental.noalias.scope.decl(metadata !9)", 
+          "  store ptr %23, ptr %11, align 8, !noalias !9", 
+          "  store ptr %27, ptr %12, align 8, !noalias !9", 
+          "  %28 = load ptr, ptr %12, align 8, !noalias !9", 
+          "  store ptr %23, ptr %9, align 8", 
+          "  store ptr %28, ptr %10, align 8", 
+          "  %29 = load ptr, ptr %9, align 8", 
+          "  %30 = load ptr, ptr %10, align 8", 
+          "  store ptr %29, ptr %7, align 8", 
+          "  store ptr %30, ptr %8, align 8", 
+          "  %31 = load ptr, ptr %7, align 8", 
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %23) #6", 
+          "  store ptr %23, ptr %15, align 8", 
+          "  %32 = load ptr, ptr %15, align 8", 
+          "  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #6", 
+          "  %33 = load i64, ptr %18, align 8", 
+          "  %34 = load i64, ptr %20, align 8", 
+          "  %35 = add i64 %33, %34", 
+          "  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %35)\n          to label %36 unwind label %46"
+        ]
+      },
+      {
+        "Name": "%36",
+        "Successors": ["%40", "%46"],
+        "Instructions": [
+          "  %37 = load ptr, ptr %17, align 8", 
+          "  %38 = load i64, ptr %18, align 8", 
+          "  %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %37, i64 noundef %38)\n          to label %40 unwind label %46"
+        ]
+      },
+      {
+        "Name": "%40",
+        "Successors": ["%44", "%46"],
+        "Instructions": [
+          "  %41 = load ptr, ptr %19, align 8", 
+          "  %42 = load i64, ptr %20, align 8", 
+          "  %43 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %41, i64 noundef %42)\n          to label %44 unwind label %46"
+        ]
+      },
+      {
+        "Name": "%44",
+        "Successors": ["%51", "%50"],
+        "Instructions": [
+          "  store i1 true, ptr %22, align 1", 
+          "  %45 = load i1, ptr %22, align 1", 
+          "  br i1 %45, label %51, label %50"
+        ]
+      },
+      {
+        "Name": "%46",
+        "Successors": ["%52"],
+        "Instructions": [
+          "  %47 = landingpad { ptr, i32 }\n          cleanup", 
+          "  %48 = extractvalue { ptr, i32 } %47, 0", 
+          "  store ptr %48, ptr %24, align 8", 
+          "  %49 = extractvalue { ptr, i32 } %47, 1", 
+          "  store i32 %49, ptr %25, align 4", 
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #6", 
+          "  br label %52"
+        ]
+      },
+      {
+        "Name": "%50",
+        "Successors": ["%51"],
+        "Instructions": [
+          "  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #6", 
+          "  br label %51"
+        ]
+      },
+      {
+        "Name": "%51",
+        "Successors": [],
+        "Instructions": [
+          "  ret void"
+        ]
+      },
+      {
+        "Name": "%52",
+        "Successors": [],
+        "Instructions": [
+          "  %53 = load ptr, ptr %24, align 8", 
+          "  %54 = load i32, ptr %25, align 4", 
+          "  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0", 
+          "  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1", 
+          "  resume { ptr, i32 } %56"
+        ]
+      }
+    ]
+  },
+  "_ZNSt11char_traitsIcE6lengthEPKc": {
+    "BasicBlocks": [
+      {
+        "Name": "%1",
+        "Successors": [],
+        "Instructions": [
+          "  %2 = alloca ptr, align 8", 
+          "  store ptr %0, ptr %2, align 8", 
+          "  %3 = load ptr, ptr %2, align 8", 
+          "  %4 = call i64 @strlen(ptr noundef %3) #6", 
+          "  ret i64 %4"
+        ]
+      }
+    ]
+  },
+  "_ZNSt15__new_allocatorIcED2Ev": {
+    "BasicBlocks": [
+      {
+        "Name": "%1",
+        "Successors": [],
+        "Instructions": [
+          "  %2 = alloca ptr, align 8", 
+          "  store ptr %0, ptr %2, align 8", 
+          "  %3 = load ptr, ptr %2, align 8", 
+          "  ret void"
+        ]
+      }
+    ]
+  }
+}
