@@ -30,7 +30,7 @@ $_ZNSt15__new_allocatorIcED2Ev = comdat any
 @.str.1 = private unnamed_addr constant [15 x i8] c"select * from \00", align 1
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local void @_Z4execNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0) #0 {
+define dso_local void @_Z10exec_queryNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef @.str)
@@ -67,7 +67,8 @@ define dso_local noundef i32 @main() #2 personality ptr @__gxx_personality_v0 {
           to label %9 unwind label %15
 
 9:                                                ; preds = %8
-  invoke void @_Z4execNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %5)
+  call void @__sqli_warning(ptr %5)
+  invoke void @_Z10exec_queryNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %5)
           to label %10 unwind label %19
 
 10:                                               ; preds = %9

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLi Vulnerability Analyzer</title>
+    <!-- Modern dark theme styling -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Cytoscape JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <!-- CodeMirror for a better code editing experience -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/clike/clike.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#4dabf7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="#4dabf7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="#4dabf7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            SQLi Analyzer
+        </div>
+        <div class="nav-links">
+            <button id="analyze-btn" class="primary-btn">Analyze Source</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Left Pane: Code Editor -->
+        <div class="editor-pane">
+            <div class="pane-header">
+                <h2>C++ Source Code</h2>
+                <span class="badge">Input</span>
+            </div>
+            <textarea id="code-editor" name="code">
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void exec_query(string q) {
+    cout << "Executing: " << q << endl;
+}
+
+int main() {
+    string input;
+    cin >> input; 
+
+    string query = "SELECT * FROM users WHERE name='";
+    query = query + input;
+    query = query + "'";
+
+    exec_query(query);
+
+    return 0;
+}</textarea>
+        </div>
+
+        <!-- Right Pane: Visualization -->
+        <div class="vis-pane">
+            <div class="pane-header">
+                <h2>Taint Path Visualization</h2>
+                <span class="badge" id="status-badge">Ready</span>
+            </div>
+            
+            <!-- Cytoscape Container -->
+            <div id="cy" class="cy-container">
+                <div id="placeholder" class="placeholder-text">
+                    Click "Analyze Source" to visualize the CFG and Taint Paths.
+                </div>
+            </div>
+
+            <div id="loading" class="loading-overlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing with LLVM...</p>
+            </div>
+            
+            <!-- Legend / Info -->
+            <div class="legend-panel">
+                <strong>💡 Graph Legend & Info:</strong>
+                <p>This graph visualizes the <strong>LLVM Intermediate Representation (IR)</strong>. 
+                Instead of direct C++ code, LLVM breaks it down into low-level instructions (like <code>alloca</code>, <code>load</code>, <code>store</code>, <code>call</code>). 
+                Each block is a "Basic Block" of instructions. </p>
+                <ul style="margin-top: 8px; font-size: 0.9em; padding-left: 20px;">
+                    <li><span style="color: var(--danger);">[TAINTED]</span> - Instruction handles unsafe datá from a source.</li>
+                    <li><span style="color: var(--primary);">Arrows</span> - Control flow branches.</li>
+                    <li>👆 <strong>Click a node</strong> to highlight the corresponding C++ source line.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

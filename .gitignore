@@ -5,6 +5,11 @@
 !/build/
 !/src/
 !/tests/
+!/gui/
+
+# Except documentation files
+!README.md
+!PROGRESS_NARRATIVE.md
 
 # And except this file
 !.gitignore

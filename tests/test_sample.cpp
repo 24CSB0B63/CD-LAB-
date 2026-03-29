@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void exec(string s)  {
+void exec_query(string s)  {
     cout<<"Executing "<<s<<endl;
 }
 
@@ -12,5 +12,5 @@ int main() {
     cin>>a;
 
     string b = "select * from "+a;
-    exec(b);
+    exec_query(b);
 }

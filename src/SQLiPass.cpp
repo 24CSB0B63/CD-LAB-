@@ -463,7 +463,22 @@ PreservedAnalyses HelloSQLiPass::run(Module &M, ModuleAnalysisManager &) {
                         else EscapedInst += c;
                     }
                     
-                    CFGFile << "\n          \"" << EscapedInst << "\"";
+                    bool isTainted = TaintedValues.count(&I);
+                    if (!isTainted) {
+                        for (Value *Op : I.operands()) {
+                            if (TaintedValues.count(Op)) {
+                                isTainted = true;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    int lineNum = -1;
+                    if (const llvm::DebugLoc &Loc = I.getDebugLoc()) {
+                        lineNum = Loc.getLine();
+                    }
+
+                    CFGFile << "\n          { \"text\": \"" << EscapedInst << "\", \"tainted\": " << (isTainted ? "true" : "false") << ", \"line\": " << lineNum << " }";
                 }
                 CFGFile << "\n        ]\n";
                 CFGFile << "      }";

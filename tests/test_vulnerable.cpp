@@ -14,12 +14,9 @@ int main() {
 
     string proxy = input; 
 
-//    string query = "SELECT * FROM logs WHERE entry='";
-    //query = query + proxy;
-
-    string query = "SELECT * FROM logs WHERE entry='Name'";
-    query = query + "' AND type='ERROR'";
-
+    string query = "SELECT * FROM logs WHERE entry='";
+    query = query + proxy;
+    
     const char* final_ptr = query.c_str();
 
     exec_query(final_ptr); 
